@@ -30,7 +30,7 @@ class _Formatter:
         return cls.RED + message + cls.END
 
 
-class Logger:
+class Logger(_Formatter):
 
     muteInfo = False
     muteDebug = False
@@ -42,41 +42,41 @@ class Logger:
         self.name = name
 
     def info(self, *message):
-        name = _Formatter.bold('[' + self.name + ']')
-        name = _Formatter.green(name)
-        level = _Formatter.green('[INFO]')
+        name = super().bold('[' + self.name + ']')
+        name = super().green(name)
+        level = super().green('[INFO]')
         message = ''.join(map(str, message))
-        message = _Formatter.green(message)
+        message = super().green(message)
 
         if not self.muteAll and not self.muteInfo:
             print(name + level + ' ' + message)
 
     def debug(self, *message):
-        name = _Formatter.bold('[' + self.name + ']')
-        name = _Formatter.blue(name)
-        level = _Formatter.blue('[DEBUG]')
+        name = super().bold('[' + self.name + ']')
+        name = super().blue(name)
+        level = super().blue('[DEBUG]')
         message = ''.join(map(str, message))
-        message = _Formatter.blue(message)
+        message = super().blue(message)
 
         if not self.muteAll and not self.muteDebug:
             print(name + level + ' ' + message)
 
     def warning(self, *message):
-        name = _Formatter.bold('[' + self.name + ']')
-        name = _Formatter.yellow(name)
-        level = _Formatter.yellow('[WARNING]')
+        name = super().bold('[' + self.name + ']')
+        name = super().yellow(name)
+        level = super().yellow('[WARNING]')
         message = ''.join(map(str, message))
-        message = _Formatter.yellow(message)
+        message = super().yellow(message)
 
         if not self.muteAll and not self.muteWarning:
             print(name + level + ' ' + message)
 
     def error(self, *message):
-        name = _Formatter.bold('[' + self.name + ']')
-        name = _Formatter.red(name)
-        level = _Formatter.red('[ERROR]')
+        name = super().bold('[' + self.name + ']')
+        name = super().red(name)
+        level = super().red('[ERROR]')
         message = ''.join(map(str, message))
-        message = _Formatter.red(message)
+        message = super().red(message)
 
         if not self.muteAll and not self.muteError:
             print(name + level + ' ' + message)
