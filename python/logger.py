@@ -80,3 +80,6 @@ class Logger(_Formatter):
 
         if not self.muteAll and not self.muteError:
             print(name + level + ' ' + message)
+
+    def init(self):
+        self.info('Logger initialized')
