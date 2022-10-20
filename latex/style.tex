@@ -1,0 +1,546 @@
+% ============
+%	DOCUMENT CLASS AND GEOMETRY
+% ============
+
+\documentclass[a4paper,12pt]{article}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2cm}
+
+
+% ============
+%	PACKAGES
+% ============
+
+%%% FONT PACKAGES
+%\usepackage{aurical}									% Aurical fonts
+%\Fontskrivan											% Skrivan font
+\usepackage{libertine}									% Libertine font
+\usepackage[libertine]{newtxmath}						% Libertine font for Math mode
+
+%%% TEXT PACKAGES
+\usepackage[spanish,
+	es-noquoting,
+	es-noshorthands,
+	es-tabla]{babel}									% Typographical rules for each language
+\usepackage{kotex}										% Korean characters
+\usepackage[T1]{fontenc} 								% T1 font encoding
+\usepackage[utf8]{inputenc}								% UTF8 standard characters
+\usepackage{textcomp}									% Text symbols
+
+%%% GRAPHIC PACKAGES
+\usepackage{graphicx}									% Inserting images
+\usepackage{pdfpages}									% Inserting PDFs
+\usepackage{tikz}										% Creating graphic elements
+\usetikzlibrary{shapes.geometric}
+\usepackage[breakable,skins]{tcolorbox}					% Coloured boxes
+\tcbuselibrary{raster}
+\usepackage{pgfornament}								% Ornaments
+\usepackage{progressbar}								% Progress bar
+\usepackage{pifont}										% Additional symbols
+\usepackage{tikzsymbols}								% Simbolitos to wapos
+\usepackage{fontawesome}								% Trending symbols
+
+%%% FORMAT PACKAGES
+\usepackage{xcolor}										% Coloured text
+\usepackage[normalem]{ulem}										% Underlining, crossing out...
+\usepackage{tabu}										% Tables
+\usepackage{multirow}									% Multirows on tables
+\usepackage{float}										% Positioning floating objects
+\usepackage{caption}									% Captions for floating objects
+\usepackage{subcaption}									% Subfigures
+\usepackage{multicol}									% Text in multiple columns
+\usepackage{enumitem}									% Control over enumerating environments
+\usepackage{titlesec}									% Styling titles
+\usepackage{fancyhdr}									% Headers and footers
+\usepackage{indentfirst}								% Indents first paragraph after section header
+%\usepackage{background}								% Styling background
+%\usepackage[toc]{multitoc}								% Multicolumn table of contents
+\usepackage{lastpage}									% Display total number of pages
+\usepackage[labelfont=bf]{caption}						% Bold font caption labels
+\usepackage{array}										% Options for tabular
+\usepackage{lipsum}										% Placeholder text
+\usepackage{etoc}										% toc for sections
+%\usepackage{minted}									% Coloured code
+\usepackage{booktabs}									% Rules on tables
+\usepackage{bigstrut}									% Table line width
+\usepackage{colortbl}									% Colours for tables
+\usepackage{soul}										% Highlighting
+\usepackage{listings}									% Code snippets
+\usepackage{fancyvrb}									% Improved verbatim
+
+%%% LOGICAL PACKAGES
+\usepackage{xifthen}									% Logical statements
+\usepackage{calc}										% Arithmetic with arguments
+\usepackage{forloop}									% Loops
+
+%%% MATHEMATICAL PACKAGES
+\usepackage{mathtools}									% Mathematical typewriting. Includes amsmath
+\usepackage{upgreek}									% Additional math symbols
+\usepackage{cancel}										% Cancel Math formatting
+\usepackage{gensymb}									% Additional unit symbols
+\decimalpoint											% Decimal point when using Spanish babel
+
+%%% OTHER PACKAGES
+\usepackage{xargs}										% Better way to define new macros
+\usepackage{hyperref}									% References and hyperreferences
+
+% ============
+%	COLOURS
+% ============
+
+\newcommand{\red}[1]{\textcolor{red!50!black}{#1}}
+\newcommand{\grey}[1]{\textcolor{white!50!black}{#1}}
+\newcommand{\gray}[1]{\textcolor{black!50}{#1}}
+\newcommand{\cyan}[1]{\textcolor{cyan!80!black}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue!40!black!60!cyan}{#1}}
+\newcommand{\green}[1]{\textcolor{lime!60!black}{#1}}
+\newcommand{\orange}[1]{\textcolor{orange!80!black}{#1}}
+\newcommand{\white}[1]{\textcolor{white}{#1}}
+
+\definecolor{ppink}{HTML}{F7C2D6}
+\definecolor{ppurple}{HTML}{C3BBEC}
+\definecolor{pblue}{HTML}{C3EFFC}
+\definecolor{pgreen}{HTML}{A7E8C8}
+\definecolor{pyellow}{HTML}{FDFFB4}
+\definecolor{porange}{HTML}{F8B6A8}
+\definecolor{BlueCrayola}{HTML}{3E92CC}
+\definecolor{Manatee}{HTML}{8D99AE}
+\definecolor{Gainsboro}{HTML}{DBDDE3}
+\definecolor{AliceBlue}{HTML}{E3F0F9}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%%% HYPERREF COLORS
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=blue!40!black!60!cyan
+}
+
+% ============
+%	FORMATTING
+% ============
+
+%%% TEXT SPACING
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{6pt}
+
+%%% LISTS SPACING
+\setlist[itemize]{leftmargin=18pt}
+\setlist[itemize]{topsep=0pt}
+\setlist[enumerate]{topsep=0pt}
+\setlist[enumerate]{parsep=0pt}
+  			
+%%% HEADERS AND FOOTERS
+% Section on the header
+%\renewcommand{\sectionmark}[1]{\markboth{\thesection\quad #1}{}}
+
+%\pagestyle{fancy}
+%\fancyhf{}
+%\lhead{\scshape Trabajo de la asignatura}
+%\rhead{\leftmark}
+%\lfoot{}
+%\rfoot{Página \thepage \hspace{1mm}de \pageref{LastPage}}
+		
+%\renewcommand{\footrulewidth}{0.4pt}
+		
+%%% TABLE OF CONTENTS
+%\renewcommand*{\multicolumntoc}{2}
+%\setlength{\columnseprule}{0.5pt}
+%\setlength{\columnsep}{10mm}
+
+\addto\captionsspanish{\renewcommand*\contentsname{Índice}}
+
+% Tocless header
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+%%% TABLES
+% New column type: centered with fixed width
+\newcolumntype{x}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%%% BLANK PAGE
+\newcommand{\blankpage}{
+	\newpage
+    \null
+    \thispagestyle{empty}
+    \newpage}
+
+%%% CAPTIONS
+% Equations and figures being \thesection.label
+%\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+
+%%% OTHER
+% Underline whole line beneath a text
+\newlength{\remaining}
+\newcommand{\ufill}[2]{
+	\setlength{\remaining}{\textwidth-\widthof{#1}-\widthof{#2}-2mm}
+	#1\hsp2\noindent\underline{#2\hspace*{\remaining}}\par
+}
+
+% Highlighting text
+\newcommand{\hlt}[2][pyellow]{\sethlcolor{#1}\hl{#2}}
+\newcommand{\hlm}[2][pyellow]{\colorbox{#1}{$\displaystyle #2$}}
+
+%%% CODE FORMATTING
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+% ============
+%	SHORTCUTS
+% ============
+
+%%% FIXED SPACING
+\newcommand{\hsp}[1]{\hspace{#1mm}}
+\newcommand{\vsp}[1]{\vspace{#1mm}}
+
+%%% CENTERING
+\newenvironment{centerv}{\vspace*{\fill}}{\vspace*{\fill}}
+\newenvironment{vhcenter}{\begin{center}\vspace*{\fill}}{\vspace*{\fill}\end{center}}
+		
+%%% PUNCTUATION
+\newcommand{\pare}[1]{\left( #1 \right)}
+\newcommand{\brac}[1]{\left[ #1 \right]}
+
+%%% UNITS
+\newcommand{\m}[1]{$\mathrm{m^#1}$}
+\newcommand{\grados}{$\degree C$}
+
+%%% FIGURES AND TABLES
+\newcommand{\figura}[1]{Figura \ref{fig:#1}}
+\newcommand{\tabla}[1]{Tabla \ref{tb:#1}}
+		
+%%% EXPLANATIONS
+\newenvironment{explanation}{
+	\par\medskip\begingroup\color{black!50}\ignorespaces\dotfill
+	
+}{
+
+   	\dotfill
+   	\endgroup\medskip
+}
+ 
+%%% IMAGES
+\newcommand{\image}[3][1]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width = #1\textwidth]{assets/#2}
+		\caption{#3}
+		\label{fig:#2}
+	\end{figure}
+}
+
+\newcommand{\imagee}[2][1]{
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width = #1\textwidth]{assets/#2}
+	\end{figure}
+}
+
+\newcommand{\biimage}[4][1]{
+	\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=#1\textwidth]{assets/#2}
+         \caption{}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.49\textwidth}
+         \centering
+         \includegraphics[width=#1\textwidth]{assets/#3}
+         \caption{}
+     \end{subfigure}
+     \caption{#4}
+     \label{fig:#2}
+\end{figure}
+}
+
+%%% MINIPAGE
+\newenvironment{mini}[1][0.5]{
+	\begin{minipage}[t]{#1\textwidth}
+}{
+	\end{minipage}
+}
+
+%%% QUICKTABU
+\newenvironment{quicktabu}[1]{
+	\begin{center}
+	\begin{tabular}{#1}
+	\hline
+}{
+	\end{tabular}
+	\end{center}
+}
+\newcommand{\lbreak}{\\ \hline}
+
+%%% ITEMIZE
+\newenvironment{blist}[1][-]{
+	\begin{itemize}[label=#1]
+}{
+	\end{itemize}
+}
+
+%%% FRACTION
+\newcommand{\fr}[2]{\hsp1\frac{#1}{#2}\hsp1}
+
+%%% CHECKLIST
+\newenvironment{checklist}{
+	\begin{itemize}[label=$\square$]
+}{
+	\end{itemize}
+}
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\correct}}%
+\hspace{-2.5pt}}
+	
+% ============
+%	SYMBOLS
+% ============
+
+\newcommand{\correct}{\ding{51}}
+\newcommand{\incorrect}{\ding{55}}
+
+\newcommand{\arrow}[1][.5]{
+	\begin{tikzpicture}[baseline=0mm]
+		\draw[->,thick] (0,0.1) -- (#1,0.1);
+		\vspace{-1mm}
+	\end{tikzpicture}
+}
+
+\newcommand{\wip}{\red{\faFlag{\tiny WIP}}}
+
+\newcommand{\pacman}[1][black]{\tikz[scale=.11]{
+  \draw[thick,fill=#1](0,0)--(30:1)arc(30:330:1)--cycle;\fill(0,2/3)circle(.15);
+}}
+
+\newcommand{\ghost}[1][black]{\tikz[scale=.3]{
+  \draw [fill=#1] (0,0) -- (0,.5) arc (+180:0:.3) -- (.6,0) --
+  (.5,.15) -- (.4,0) -- (.3,.15) -- (.2,0) -- (.1,.15) -- cycle;
+    \coordinate (eye) at (360*rand:.03);
+    \foreach \x in {.17,.43}{
+      \fill[white] (\x,.5) circle[radius=.1];
+      \fill[black] (\x,.5) ++(eye) circle[radius=.05];
+    }
+}}
+
+
+% ============
+%	COLORBOXES
+% ============
+\newtcolorbox{mybox}[1][]{
+    enhanced,
+    breakable,
+    parbox=false,
+    colframe=black,
+    colbacktitle=black,
+    colback=white,
+    fonttitle=\bfseries\centering\large,
+    coltitle=white,
+    arc=0pt,
+    adjusted title = #1,
+    subtitle style={
+    	width = 4cm,
+    	height = 6mm,
+    	arc = 0pt,
+    	colframe=black
+    	%rounded corners = east
+ 	},
+    segmentation style={solid,thick}
+}
+		
+\newtcolorbox{imagebox}[1][0]{
+    enhanced,
+    center,
+    parbox=false,
+    boxrule = 0.5pt,
+    colframe=black!#1,
+    colback=white,
+    fonttitle=\bfseries\large\hspace{12pt},
+    coltitle=black,
+    arc=0pt,
+    attach title to upper,
+    %title = {#1},
+    left = 0cm,
+    right = 0cm,
+    bottom = 0cm,
+    top = 0mm,
+    boxsep = 0cm,
+    width = 0.9\textwidth
+    %after skip = 10mm
+}
+
+% ============
+%	HEADERS
+% ============
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{4}
+
+\newtest{\istl}[2]{
+	\equal{#1}{t}\OR\equal{#2}{t}
+}
+\newtest{\isnl}[2]{
+	\equal{#1}{n}\OR\equal{#2}{n}
+}
+
+\newcommandx{\h}[4][2,3]{
+	\ifthenelse{#1=1}{
+		\ifthenelse{\istl{#2}{#3}\AND\NOT\isnl{#2}{#3}}{
+			\tocless\section{#4}
+		}{}
+		\ifthenelse{\NOT\istl{#2}{#3}\AND\isnl{#2}{#3}}{
+			\addcontentsline{toc}{section}{#4}
+			\refstepcounter{section}
+			\section*{#4}\markboth{#4}{}
+		}{}
+		\ifthenelse{\istl{#2}{#3}\AND\isnl{#2}{#3}}{
+			\section*{#4}
+		}{}
+		\ifthenelse{\NOT\istl{#2}{#3}\AND\NOT\isnl{#2}{#3}}{
+			\section{#4}\markboth{#4}{}	
+		}{}		
+	}{
+	\ifthenelse{#1=2}{
+		\ifthenelse{\istl{#2}{#3}\AND\NOT\isnl{#2}{#3}}{
+			\tocless\subsection{#4}
+		}{}
+		\ifthenelse{\NOT\istl{#2}{#3}\AND\isnl{#2}{#3}}{
+			\addcontentsline{toc}{subsection}{#4}
+			\refstepcounter{subsection}
+			\subsection*{#4}
+		}{}
+		\ifthenelse{\istl{#2}{#3}\AND\isnl{#2}{#3}}{
+			\subsection*{#4}
+		}{}
+		\ifthenelse{\NOT\istl{#2}{#3}\AND\NOT\isnl{#2}{#3}}{
+			\subsection{#4}
+		}{}	
+	}{
+	\ifthenelse{#1=3}{
+		\ifthenelse{\istl{#2}{#3}\AND\NOT\isnl{#2}{#3}}{
+			\tocless\subsubsection{#4}
+		}{}
+		\ifthenelse{\NOT\istl{#2}{#3}\AND\isnl{#2}{#3}}{
+			\addcontentsline{toc}{subsubsection}{#4}
+			\refstepcounter{subsubsection}
+			\subsubsection*{#4}
+		}{}
+		\ifthenelse{\istl{#2}{#3}\AND\isnl{#2}{#3}}{
+			\subsubsection*{#4}
+		}{}
+		\ifthenelse{\NOT\istl{#2}{#3}\AND\NOT\isnl{#2}{#3}}{
+			\subsubsection{#4}
+		}{}	
+	}{
+	\ifthenelse{#1=4}{
+		\ifthenelse{\istl{#2}{#3}\AND\NOT\isnl{#2}{#3}}{
+			\tocless\paragraph{#4}
+		}{}
+		\ifthenelse{\NOT\istl{#2}{#3}\AND\isnl{#2}{#3}}{
+			\addcontentsline{toc}{paragraph}{#4}
+			\refstepcounter{paragraph}
+			\paragraph*{#4}
+		}{}
+		\ifthenelse{\istl{#2}{#3}\AND\isnl{#2}{#3}}{
+			\paragraph*{#4}
+		}{}
+		\ifthenelse{\NOT\istl{#2}{#3}\AND\NOT\isnl{#2}{#3}}{
+			\paragraph{#4}
+		}{}	
+	}{
+	\ifthenelse{#1=5}{
+		\ifthenelse{\istl{#2}{#3}\AND\NOT\isnl{#2}{#3}}{
+			\tocless\subparagraph{#4}
+		}{}
+		\ifthenelse{\NOT\istl{#2}{#3}\AND\isnl{#2}{#3}}{
+			\addcontentsline{toc}{subparagraph}{#4}
+			\refstepcounter{subparagraph}
+			\subparagraph*{#4}
+		}{}
+		\ifthenelse{\istl{#2}{#3}\AND\isnl{#2}{#3}}{
+			\subparagraph*{#4}
+		}{}
+		\ifthenelse{\NOT\istl{#2}{#3}\AND\NOT\isnl{#2}{#3}}{
+			\subparagraph{#4}
+		}{}
+	}{}}}}}
+}
+		
+%%% SECTION
+\titleformat{\section}
+	[hang] 					%Shape
+	{\LARGE\bfseries} 		%Format
+	{\thesection} 			%Label
+	{5mm} 					%Separation
+	{} 						%Before-code
+	[
+	] 						%After-code
+
+%%% SUBSECTION	
+\titleformat{\subsection}
+	[hang] 					%Shape
+	{\bfseries\Large} 		%Format
+	{\thesubsection} 		%Label
+	{3mm} 					%Separation
+	{} 						%Before-code
+	[
+	] 						%After-code
+
+%%% SUBSUBSECTION	
+\titleformat{\subsubsection}
+	[hang] 					%Shape
+	{\bfseries\large} 		%Format
+	{\thesubsubsection} 	%Label
+	{2mm} 					%Sep
+	{} 						%Before-code
+	[
+	] 						%After-code
+
+%%% PARAGRAPH
+\titleformat{\paragraph}
+	[hang]
+	{\bfseries}
+	{\theparagraph}
+	{2mm}
+	{}
+	
+\titlespacing*{\paragraph}{0mm}{3mm}{0mm}
+
+%%% SUBPARAGRAPH
+\titleformat{\subparagraph}
+	[hang]
+	{\bfseries}
+	{\thesubparagraph}
+	{2mm}
+	{}
+	
+\titlespacing*{\subparagraph}{0mm}{3mm}{0mm}
+
+	
+% ============
+%	SPECIFICS
+% ============
+
